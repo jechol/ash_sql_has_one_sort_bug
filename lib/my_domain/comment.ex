@@ -22,6 +22,7 @@ defmodule MyDomain.Comment do
   attributes do
     integer_primary_key :id
     attribute :date, :date, public?: true
+    attribute :hidden, :boolean, public?: true
   end
 
   relationships do

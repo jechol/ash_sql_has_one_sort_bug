@@ -34,5 +34,12 @@ defmodule MyDomain.Post do
       from_many? true
       sort date: :desc
     end
+
+    has_one :latest_hidden_comment, MyDomain.Comment do
+      public? true
+      from_many? true
+      filter expr(hidden == true)
+      sort date: :desc
+    end
   end
 end

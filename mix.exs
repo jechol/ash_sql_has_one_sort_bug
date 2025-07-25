@@ -26,7 +26,7 @@ defmodule AiPersonalChef.MixProject do
   defp deps do
     [
       {:ecto_dev_logger, "~> 0.14"},
-      {:ash_sql, "0.2.88"},
+      {:ash_sql, "0.2.87"},
       {:ash_postgres, "~> 2.0"},
       {:sourceror, "~> 1.8", only: [:dev, :test]},
       {:ash, "~> 3.0"},

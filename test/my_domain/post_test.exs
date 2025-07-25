@@ -8,9 +8,15 @@ defmodule MyDomain.PostTest do
       Ash.Changeset.for_create(Post, :create)
       |> Ash.create!()
 
-    [~D[2025-01-03], ~D[2025-01-02], ~D[2025-01-05], ~D[2025-01-04], ~D[2025-01-01]]
-    |> Enum.each(fn date ->
-      Ash.Changeset.for_create(Comment, :create, post_id: post.id, date: date)
+    [
+      {~D[2025-01-03], false},
+      {~D[2025-01-02], true},
+      {~D[2025-01-05], false},
+      {~D[2025-01-04], true},
+      {~D[2025-01-01], false}
+    ]
+    |> Enum.each(fn {date, hidden} ->
+      Ash.Changeset.for_create(Comment, :create, post_id: post.id, date: date, hidden: hidden)
       |> Ash.create!()
     end)
 
@@ -28,7 +34,14 @@ defmodule MyDomain.PostTest do
   end
 
   test "has_one", %{post: post} do
-    assert %{id: 1, date: ~D[2025-01-05]} =
+    Logger.configure(level: :debug)
+
+    assert %{date: ~D[2025-01-05]} =
              Ash.load!(post, :latest_comment).latest_comment
+  end
+
+  test "has_one with filter", %{post: post} do
+    assert %{date: ~D[2025-01-04]} =
+             Ash.load!(post, :latest_hidden_comment).latest_hidden_comment
   end
 end
