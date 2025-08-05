@@ -28,7 +28,7 @@ defmodule AiPersonalChef.MixProject do
       {:ecto_dev_logger, "~> 0.14"},
       {:ash_sql, "~> 0.2"},
       {:ash_postgres, "~> 2.0"},
-      {:ash, "~> 3.0"}
+      {:ash, "3.5.23"}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
