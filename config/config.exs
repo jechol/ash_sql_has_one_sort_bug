@@ -4,6 +4,7 @@ config :ai_personal_chef, ecto_repos: [AiPersonalChef.Repo], ash_domains: [MyDom
 config :ai_personal_chef, AiPersonalChef.Repo, log: false
 
 config :ash,
+  default_belongs_to_type: :integer,
   allow_forbidden_field_for_relationships_by_default?: true,
   include_embedded_source_by_default?: false,
   show_keysets_for_all_actions?: false,

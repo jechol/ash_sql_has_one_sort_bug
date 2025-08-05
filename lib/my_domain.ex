@@ -4,6 +4,8 @@ defmodule MyDomain do
 
   resources do
     resource MyDomain.Post
+    resource MyDomain.Tag
+    resource MyDomain.PostTag
     resource MyDomain.Comment
   end
 end

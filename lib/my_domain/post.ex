@@ -41,5 +41,18 @@ defmodule MyDomain.Post do
       filter expr(hidden == true)
       sort date: :desc
     end
+
+    many_to_many :tags, MyDomain.Tag do
+      public? true
+      through MyDomain.PostTag
+      sort importance: :desc
+    end
+
+    has_one :most_important_tag, MyDomain.Tag do
+      public? true
+      no_attributes? true
+      filter expr(posts.id == parent(id))
+      sort importance: :desc
+    end
   end
 end
