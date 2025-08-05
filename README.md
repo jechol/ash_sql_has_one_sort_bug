@@ -76,5 +76,4 @@ The issue occurs because the unspecified id is placed first in the ORDER BY clau
 		ORDER BY
 			st0."id",
 			st0."importance" DESC
-		LIMIT
 ```
