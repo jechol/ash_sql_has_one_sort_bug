@@ -24,7 +24,7 @@ jobs:
     # Additional services can be defined here if required.
     services:
       db:
-        image: postgres:12
+        image: postgres:17
         ports: ["5432:5432"]
         env:
           POSTGRES_PASSWORD: postgres
@@ -112,4 +112,6 @@ jobs:
 
       # Step: Execute the tests.
       - name: Run tests
-        run: mix test
+        run: |
+          mix ecto.setup
+          mix test
