@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "name": "ash_sql_has_one_sort_bug",
+      "path": "."
+    },
+    {
+      "name": "ash",
+      "path": "../ash"
+    },
+    {
+      "name": "ash_sql",
+      "path": "../ash_sql"
+    },
+    {
+      "name": "ash_postgres",
+      "path": "../ash_postgres"
+    }
+  ],
+  "settings": {
+    "search.exclude": {
+      "**/champ/root": true
+    },
+    "evenBetterToml.formatter.indentTables": true,
+    "evenBetterToml.formatter.indentEntries": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  }
+}
