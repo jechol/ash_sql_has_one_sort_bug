@@ -27,7 +27,7 @@ Post has Tag relationships with both many_to_many and has_one, sorted by importa
 ### Failing Test
 There is a failing test that can be confirmed with
 ```shell
-$ mix setup
+$ MIX_ENV=test mix ecto.reset
 $ mix test
 ```
 
