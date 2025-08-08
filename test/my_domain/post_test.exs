@@ -1,12 +1,14 @@
 defmodule MyDomain.PostTest do
   use AiPersonalChef.DataCase
 
-  alias MyDomain.{Post, Comment, Tag, PostTag}
+  alias MyDomain.{User, Post, Comment, Tag, PostTag}
 
   describe "comments" do
     setup do
+      author = Ash.Changeset.for_create(User, :create, age: 29) |> Ash.create!()
+
       post =
-        Ash.Changeset.for_create(Post, :create)
+        Ash.Changeset.for_create(Post, :create, %{author_id: author.id, date: ~D[2025-01-01]})
         |> Ash.create!()
 
       [
@@ -47,8 +49,10 @@ defmodule MyDomain.PostTest do
 
   describe "tags" do
     setup do
+      author = Ash.Changeset.for_create(User, :create, age: 29) |> Ash.create!()
+
       post =
-        Ash.Changeset.for_create(Post, :create)
+        Ash.Changeset.for_create(Post, :create, %{author_id: author.id, date: ~D[2025-01-01]})
         |> Ash.create!()
 
       [
