@@ -29,5 +29,19 @@ defmodule MyDomain.Tag do
       through MyDomain.PostTag
       public? true
     end
+
+    has_one :latest_post, MyDomain.Post do
+      public? true
+      no_attributes? true
+      filter expr(tags.id == parent(id))
+      sort date: :desc
+    end
+
+    has_one :post_written_by_oldest, MyDomain.Post do
+      public? true
+      no_attributes? true
+      filter expr(tags.id == parent(id))
+      sort author_age: :desc
+    end
   end
 end

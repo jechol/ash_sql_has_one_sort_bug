@@ -75,6 +75,8 @@ defmodule MyDomain.PostTest do
     end
 
     test "many_to_many with sort", %{post: post} do
+      Logger.configure(level: :debug)
+
       assert [
                %{importance: 7},
                %{importance: 6},

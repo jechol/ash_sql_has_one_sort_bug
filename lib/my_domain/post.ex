@@ -21,9 +21,15 @@ defmodule MyDomain.Post do
 
   attributes do
     integer_primary_key :id
+    attribute :date, :date, allow_nil?: false, public?: true
   end
 
   relationships do
+    belongs_to :author, MyDomain.User do
+      public? true
+      allow_nil? false
+    end
+
     has_many :comments, MyDomain.Comment do
       public? true
       sort date: :desc
@@ -54,5 +60,9 @@ defmodule MyDomain.Post do
       filter expr(posts.id == parent(id))
       sort importance: :desc
     end
+  end
+
+  calculations do
+    calculate :author_age, :integer, expr(author.age)
   end
 end

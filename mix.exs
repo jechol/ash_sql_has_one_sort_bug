@@ -28,7 +28,8 @@ defmodule AiPersonalChef.MixProject do
       {:ecto_dev_logger, "~> 0.14"},
       {:ash_sql, path: "../ash_sql", override: true},
       {:ash_postgres, path: "../ash_postgres", override: true},
-      {:ash, path: "../ash", override: true}
+      {:ash, path: "../ash", override: true},
+      {:sourceror, "~> 1.7", only: [:dev, :test]}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]

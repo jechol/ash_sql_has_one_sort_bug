@@ -3,6 +3,7 @@ defmodule MyDomain do
     otp_app: :ai_personal_chef
 
   resources do
+    resource MyDomain.User
     resource MyDomain.Post
     resource MyDomain.Tag
     resource MyDomain.PostTag
