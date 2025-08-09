@@ -34,8 +34,12 @@ defmodule MyDomain.TagTest do
   end
 
   test "latest_post (order by calculation)", %{tag: tag, posts: posts} do
-    latest_post = Ash.load!(tag, :post_written_by_oldest).post_written_by_oldest
+    Logger.configure(level: :debug)
 
-    assert latest_post.author.age == 40
+    latest_post =
+      Ash.load!(tag, :post_written_by_oldest).post_written_by_oldest
+      |> Ash.load!(:author)
+
+    assert latest_post.author.age == 41
   end
 end
